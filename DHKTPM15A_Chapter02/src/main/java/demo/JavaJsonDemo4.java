@@ -18,7 +18,8 @@ public class JavaJsonDemo4 {
 		List<PhoneNumber> phoneNumbers = revertFromJson("data/customer.json");
 		System.out.println(phoneNumbers);
 	}
-
+	
+	// đọc file, chuyển lại thành lớp đối tượng
 	private static List<PhoneNumber> revertFromJson(String fileName) {
 		List<PhoneNumber> phoneNumbers = new ArrayList<PhoneNumber>();
 		JsonReader reader = null;

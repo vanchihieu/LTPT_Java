@@ -19,7 +19,9 @@ import entity.PhoneNumber;
 public class JavaJsonDemo {
 	public static void main(String[] args) {
 		Customer cus = new Customer("Anna", "Nguyen", 20);
+		
 		cus.setAddress(new Address("12 Le Lai", "HCM CIty", "", 100000));
+		
 		List<PhoneNumber> phoneNumbers = Arrays.asList(new PhoneNumber("Mobi", "090512312"),
 				new PhoneNumber("Fax", "0234242424"));
 		cus.setPhoneNumbers(phoneNumbers);

@@ -33,7 +33,7 @@ public class JavaStreamJSonDemo {
 		generator.writeStartObject().write("firstName", cus.getFirstName()).write("lastName", cus.getLastName())
 				.write("age", cus.getAge()).writeStartObject("address")
 				.write("streetAddress", cus.getAddress().getStreetAddress()).writeEnd().writeEnd();
-		
+
 		generator.close();
 	}
 }

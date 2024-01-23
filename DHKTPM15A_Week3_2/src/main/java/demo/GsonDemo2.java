@@ -12,7 +12,7 @@ public class GsonDemo2 {
 	public static void main(String[] args) throws FileNotFoundException {
 		Gson gson = new Gson();
 		
-		Scanner scanner = new Scanner(new FileReader("data/customer.json"));
+		Scanner scanner = new Scanner(new FileReader("data/customer2.json"));
 		
 		String json = "";
 		while(scanner.hasNextLine()) {
