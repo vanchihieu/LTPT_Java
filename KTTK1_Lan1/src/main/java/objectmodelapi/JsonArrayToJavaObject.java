@@ -14,7 +14,7 @@ import jakarta.json.JsonObject;
 import jakarta.json.JsonReader;
 import jakarta.json.JsonValue;
 
-public class JsonArrayToJsonObject {
+public class JsonArrayToJavaObject {
 	public static void main(String[] args) {
 		try(JsonReader reader = Json.createReader(new FileReader("data/restaurants.json")) ) {
 			JsonArray jsonArray = reader.readArray();
@@ -37,6 +37,7 @@ public class JsonArrayToJsonObject {
             String cuisine = jo.getString("cuisine");
             boolean isActive = jo.getBoolean("isActive");
             
+            // categories
             JsonArray categoriesArray = jo.getJsonArray("categories");
             List<String> categories = new ArrayList<>();
             for (JsonValue value : categoriesArray.getValuesAs(JsonValue.class)) {
@@ -44,6 +45,7 @@ public class JsonArrayToJsonObject {
                 categories.add(category);
             }
             
+            // address
             JsonObject addressObject = jo.getJsonObject("address");
             String building = addressObject.getString("building");
             JsonArray coordArray = addressObject.getJsonArray("coord");
@@ -54,6 +56,7 @@ public class JsonArrayToJsonObject {
             String street = addressObject.getString("street");
             String zipcode = addressObject.getString("zipcode");
             
+            // grades
             JsonArray gradesArray = jo.getJsonArray("grades");
             List<Grade> grades = new ArrayList<Grade>();
             for (JsonObject gradeObject : gradesArray.getValuesAs(JsonObject.class)) {

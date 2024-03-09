@@ -16,6 +16,7 @@ public class JsonToJavaObject {
 
 		Restaurant currentRestaurant = null;
 		String currentKey = null;
+
 		try {
 			FileInputStream fileInputStream = new FileInputStream("data/VanChiHieu_21108211.json");
 			JsonParser jsonParser = Json.createParser(fileInputStream);
@@ -37,10 +38,8 @@ public class JsonToJavaObject {
 					if ("categories".equals(currentKey)) {
 						currentRestaurant.setCategories(parseStringArray(jsonParser));
 					} else if ("coord".equals(currentKey)) {
-//						currentRestaurant.setCoord(parseDoubleArray(jsonParser));
 						currentRestaurant.getAddress().setCoord(parseDoubleArray(jsonParser));
 
-//						System.out.println(currentRestaurant.getAddress().getco);
 					} else if ("grades".equals(currentKey)) {
 						currentRestaurant.setGrades(parseGradesArray(jsonParser));
 					}
@@ -52,7 +51,6 @@ public class JsonToJavaObject {
 					if (currentRestaurant != null) {
 						parseStringValue(currentKey, jsonParser.getString(), currentRestaurant);
 					}
-//					System.out.println(currentRestaurant);
 					break;
 				case VALUE_NUMBER:
 					if (currentRestaurant != null) {
@@ -79,7 +77,6 @@ public class JsonToJavaObject {
 			for (Restaurant restaurant : restaurants) {
 				System.out.println(restaurant);
 			}
-			System.out.println(restaurants.size());
 
 			jsonParser.close();
 			fileInputStream.close();
@@ -101,9 +98,9 @@ public class JsonToJavaObject {
 		case "cuisine":
 			currentRestaurant.setCuisine(value);
 			break;
-		case "isActive":
-			currentRestaurant.setActive(Boolean.parseBoolean(value));
-			break;
+//		case "isActive":
+//			currentRestaurant.setActive(Boolean.parseBoolean(value));
+//			break;
 		case "building":
 			currentRestaurant.getAddress().setBuilding(value);
 			break;
@@ -123,12 +120,12 @@ public class JsonToJavaObject {
 		case "restaurantId":
 			currentRestaurant.setRestaurantId((int) value);
 			break;
-		case "date":
-			currentRestaurant.getGrades().get(currentRestaurant.getGrades().size() - 1).setDate(value);
-			break;
-		case "score":
-			currentRestaurant.getGrades().get(currentRestaurant.getGrades().size() - 1).setScore((int) value);
-			break;
+//		case "date":
+//			currentRestaurant.getGrades().get(currentRestaurant.getGrades().size() - 1).setDate(value);
+//			break;
+//		case "score":
+//			currentRestaurant.getGrades().get(currentRestaurant.getGrades().size() - 1).setScore((int) value);
+//			break;
 		default:
 			break;
 		}

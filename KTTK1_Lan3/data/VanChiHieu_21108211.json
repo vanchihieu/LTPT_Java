@@ -4,7 +4,7 @@
  "name": "Morris Park Bake Shop",
  "borough": "Bronx",
  "cuisine": "Bakery",
- "isActive": false,
+ "isActive": true,
  "categories":["Seafood","Fastfood"],
  "address": {
  "building": "1007",

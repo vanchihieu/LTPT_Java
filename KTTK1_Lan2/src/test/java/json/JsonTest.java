@@ -44,7 +44,7 @@ public class JsonTest {
 
 		Restaurant restaurant = new Restaurant();
 		restaurant.setRestaurantId(30000001);
-		restaurant.setName("Morris Park Bake Shop");
+		restaurant.setName("Hieu");
 		restaurant.setBorough("Bronx");
 		restaurant.setCuisine("Bakery");
 		restaurant.setActive(false);

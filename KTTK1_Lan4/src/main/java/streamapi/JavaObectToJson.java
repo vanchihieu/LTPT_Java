@@ -52,7 +52,7 @@ public class JavaObectToJson {
 			// Đóng JsonGenerator
 			jsonGenerator.close();
 
-			System.out.println("Tài liệu JSON đã được tạo và ghi vào file HOTEN_MASSV.json");
+			System.out.println("Tai lieu json da duoc ghi");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
