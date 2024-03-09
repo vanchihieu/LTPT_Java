@@ -1,0 +1,42 @@
+{
+  "_id": "573a1390f29313caabcd421c",
+  "order_date": "2016-07-11",
+  "customer ": {
+    "customer_id": "TOVE11357",
+    "full_name": "Tona Velasquez",
+    "email": "tona.velasquez@msn.com",
+    "phone_number": "645 946-648"
+  },
+  "order_status": "Complete",
+  "shipped_date": "2016-07-11",
+  "staff": {
+    "staff_id": 2,
+    "full_name": "Mireya Copeland",
+    "phone_number": "(831) 555-5555"
+  },
+  "order_details": [
+    {
+      "quantity": 2,
+      "color": "red",
+      "product_id": 3,
+      "line_total": 1859.9814,
+      "price": 999.99,
+      "discount": 0.07
+    },
+    {
+      "quantity": 2,
+      "color": "blue",
+      "product_id": 9,
+      "line_total": 5579.9814,
+      "price": 2999.99,
+      "discount": 0.07
+    }
+  ],
+  "order_total": 97439.9628,
+  "shipping_address": {
+    "city": "Whitestone",
+    "zip_code": "11357",
+    "street": "9166 Trout St. ",
+    "state": "NY"
+  }
+}

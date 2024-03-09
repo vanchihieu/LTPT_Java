@@ -15,7 +15,7 @@ public class JsonDemo2 {
 					new Person("Tung", "Le", 27)
 				);
 		
-		JsonHandler.toJsonFile(list, "data/people.json");
+		JsonHandler.toJsonFile(list, "data/people1.json");
 		System.out.println("Done");
 	}
 }
