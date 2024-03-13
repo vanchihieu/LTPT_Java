@@ -42,7 +42,7 @@ public class LophocDao extends AbstractDao {
 		CodecRegistry setting = MongoClientSettings.getDefaultCodecRegistry();
 		CodecRegistry pojoCodeRegistry = CodecRegistries.fromRegistries(setting, pojoProvider);
 
-		lophocCollection = db.getCollection("dsLopHoc1", Lophoc.class).withCodecRegistry(pojoCodeRegistry);
+		lophocCollection = db.getCollection("dsLophoc", Lophoc.class).withCodecRegistry(pojoCodeRegistry);
 	}
 
 	public boolean themLophoc(Lophoc lh) {
@@ -58,7 +58,7 @@ public class LophocDao extends AbstractDao {
 		Document doc = new Document("mslop", new Document("$regex", ".*CLC$").append("$options", "i"));
 
 		lophocCollection.find(doc)
-//			.find(Filters.regex("mslop", ".*CLC$", "i"))
+//			lophocCollection.find(Filters.regex("mslop", ".*CLC$", "i"))
 				.iterator().forEachRemaining(dslh::add);
 
 		return dslh;

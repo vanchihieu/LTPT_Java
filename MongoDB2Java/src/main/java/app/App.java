@@ -23,7 +23,7 @@ public class App {
 		
 		Sinhvien sv = new Sinhvien("523", "Van", "Hieu", 20);
 		Sinhvien sv1 = new Sinhvien("126", "Phuong", "Huyen", 30);
-		Sinhvien sv2 = new Sinhvien("635", "Nguyen", "Mai", 24);
+		Sinhvien sv2 = new Sinhvien("635", "Nguyen", "Mai", 25);
 		Sinhvien sv3 = new Sinhvien("987", "Be", "Em", 18);
 
 		List<Sinhvien> dssv = Arrays.asList(sv,sv1,sv2,sv3);

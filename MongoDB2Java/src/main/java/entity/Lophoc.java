@@ -1,7 +1,11 @@
 package entity;
 
+import org.bson.codecs.pojo.annotations.BsonProperty;
+
 public class Lophoc {
+	@BsonProperty("mslop")
 	private String msLop;
+	@BsonProperty("tenlop")
 	private String tenLop;
 	private int sisoDukien;
 

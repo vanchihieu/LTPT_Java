@@ -56,6 +56,7 @@ public class SinhvienUtil extends AbstractDao {
 //		.iterator().forEachRemaining(doc -> System.out.println(doc));
 
 		Document lhDoc = (Document) doc.get("lh");
+		
 		map.put(new Lophoc(lhDoc.getString("mslop"), lhDoc.getString("tenlop"), lhDoc.getInteger("sisoDukien")),
 				doc.getInteger("sosv"));
 

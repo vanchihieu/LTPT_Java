@@ -85,6 +85,8 @@ public class JsonArrayToJsonObject {
 
 		try (JsonWriter writer = Json.createWriter(new FileWriter("data/VanChiHieu_21108211.json"))) {
 			writer.writeArray(restaurantArray);
+			System.out.println("Tai lieu json da duoc ghi");
+
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
