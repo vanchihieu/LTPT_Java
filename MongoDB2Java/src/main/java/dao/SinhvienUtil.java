@@ -45,7 +45,8 @@ public class SinhvienUtil extends AbstractDao {
 //		Map<Lophoc, Integer> map = new TreeMap<Lophoc, Integer>();
 
 		Document doc = sinhvienCollection
-				.aggregate(Arrays.asList(Aggregates.group("$malop", Accumulators.sum("sosv", 1)),
+				.aggregate(Arrays.asList(
+						Aggregates.group("$malop", Accumulators.sum("sosv", 1)),
 						Aggregates.sort(Sorts.descending("sosv")), Aggregates.limit(1),
 						Aggregates.lookup("dsLophoc", "_id", "mslop", "lh"), Aggregates.unwind("$lh")))
 				.first();
