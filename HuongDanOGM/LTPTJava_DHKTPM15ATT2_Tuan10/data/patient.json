@@ -1,0 +1,26 @@
+{
+	"_id": "PT-5",
+	"firstName": "Michael",
+	"lastName": "Hartstein",
+	"address": "688 Amerige St.Bronx, NY 10453",
+	"gender": "MALE",
+	"DOB": {
+		"$date": "1995-03-09T17:00:00Z"
+	},
+	"phones": [
+		"515.123.7777",
+		"515.123.8181"
+	],
+	"treatments": [
+		{
+			"doctorID": "DT106",
+			"endDate": {
+				"$date": "2022-02-02T17:00:00Z"
+			},
+			"description": "Colds and Flu",
+			"startDate": {
+				"$date": "2022-02-01T17:00:00Z"
+			}
+		}
+	]
+}

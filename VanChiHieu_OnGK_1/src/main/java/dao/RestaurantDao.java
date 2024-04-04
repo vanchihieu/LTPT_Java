@@ -78,6 +78,7 @@ public class RestaurantDao {
 		Publisher<String> index = restaurantColl.createIndex(keys);
 		RestaurantSubcriber<String> subIndex = new RestaurantSubcriber<>();
 		index.subscribe(subIndex);
+		
 		FindPublisher<Restaurant> list = restaurantColl.find(Filters.text(text));
 		RestaurantSubcriber<Restaurant> sub = new RestaurantSubcriber<>();
 		list.subscribe(sub);
