@@ -10,7 +10,9 @@ import jakarta.persistence.criteria.CriteriaQuery;
 import jakarta.persistence.criteria.Root;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class ProductDAO {
     private EntityManager em;
@@ -135,5 +137,36 @@ public class ProductDAO {
         }
 
         return products;
+    }
+
+    // 7. Tính tổng số lượng của từng sản phẩm đã bán ra.
+    // select product_id, sum(quantity) from order_items group by product_id
+    public List<Object[]> sumQuantityOfProductSold() {
+        List<Object[]> result = new ArrayList<Object[]>();
+        try {
+            em.getTransaction().begin();
+            Query query = em.createQuery("SELECT oi.product.id, SUM(oi.quantity) FROM OrderItem oi GROUP BY oi.product.id");
+            result = query.getResultList();
+            em.getTransaction().commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
+
+    public Map<Product, Integer> getTotalProduct() {
+        Map<Product, Integer> result = new HashMap<Product, Integer>();
+        try {
+            em.getTransaction().begin();
+            Query query = em.createQuery("SELECT oi.product, SUM(oi.quantity) FROM OrderItem oi GROUP BY oi.product.id");
+            List<Object[]> resultList = query.getResultList();
+            for (Object[] objects : resultList) {
+                result.put((Product) objects[0], (Integer) objects[1]);
+            }
+            em.getTransaction().commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return result;
     }
 }

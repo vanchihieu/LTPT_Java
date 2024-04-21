@@ -18,4 +18,18 @@
             <property name="hibernate.format_sql" value="true"/>
         </properties>
     </persistence-unit>
+
+    <persistence-unit name="JPA_ORM_Student_MSSQL" transaction-type="RESOURCE_LOCAL">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <properties>
+            <property name="jakarta.persistence.jdbc.driver" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"/>
+            <property name="jakarta.persistence.jdbc.dialect" value="org.hibernate.dialect.SQLServerDialect"/>
+            <property name="hibernate.connection.url" value="jdbc:sqlserver://localhost:1433;databaseName=lab7_exe02;trustServerCertificate=true;encrypt=true;"/>
+            <property name="hibernate.connection.username" value="sa"/>
+            <property name="hibernate.connection.password" value="sapassword"/>
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="true"/>
+        </properties>
+    </persistence-unit>
 </persistence>

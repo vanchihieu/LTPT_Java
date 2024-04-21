@@ -8,7 +8,7 @@ import java.util.Set;
 
 @Getter
 @Setter
-@NoArgsConstructor
+//@NoArgsConstructor
 @Entity
 @Table(name = "categories")
 public class Category {
@@ -21,6 +21,9 @@ public class Category {
 
     @OneToMany(mappedBy = "category", fetch = FetchType.LAZY)
     private Set<Product> products;
+
+    public Category() {
+    }
 
     public Category(int id, String name, Set<Product> products) {
         this.id = id;
