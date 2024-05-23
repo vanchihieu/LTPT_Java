@@ -25,7 +25,8 @@ public class BookService implements BookDAO {
 //                .setParameter("author", author)
 //                .setParameter("rating", rating)
 //                .getResultList();
-        return entityManager.createQuery("select b from Book b join Reviews r on b.ISBN = r.book.ISBN where b.name = :author and r.rating >= :rating", Book.class)
+
+        return entityManager.createQuery("select b from Book b join b.reviews r join b.authors a where a = :author and r.rating >= :rating", Book.class)
                 .setParameter("author", author)
                 .setParameter("rating", rating)
                 .getResultList();

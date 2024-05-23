@@ -75,8 +75,8 @@ class ClientHandler implements Runnable {
                         break;
                     case 4:
                         boolean addCandidate = candidateService.addCandidate(
-                                new Candidate("C123","SE" ,"Chi Hieu", 2003, "Male", "hieu@gmail.com", "0334225101",
-                                        new Position("C200", "SE", "test", 2000.0, 3) ));
+                                new Candidate("C124","SE" ,"Chi Hieu", 2003, "Male", "hieu@gmail.com", "0334225101",
+                                        new Position("C201", "SE", "test", 2000.0, 3) ));
                         out.writeBoolean(addCandidate);
                         out.flush();
                         break;

@@ -8,6 +8,6 @@ public class Main {
         EntityManagerFactoryUtil entityManagerFactoryUtil = new EntityManagerFactoryUtil();
 
         BookService bookService = new BookService(entityManagerFactoryUtil.getEnManager());
-        System.out.println(bookService.listRatedBooks("Javascript: A Handbook of Agile Software Craftsmanship", 2));
+        System.out.println(bookService.listRatedBooks("Robert C. Martin", 2));
     }
 }

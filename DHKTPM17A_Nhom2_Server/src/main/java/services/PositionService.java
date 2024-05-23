@@ -19,7 +19,12 @@ public class PositionService implements PositionDAO {
     // select * from positions where name like '%name%' and salary between salaryFrom and salaryTo order by name;
     @Override
     public List<Position> listPositions(String name, Double salaryFrom, Double salaryTo) {
-        return entityManager.createNativeQuery("SELECT * FROM positions WHERE name like :name AND salary BETWEEN :salaryFrom AND :salaryTo ORDER BY name", Position.class)
+//        return entityManager.createNativeQuery("SELECT * FROM positions WHERE name like :name AND salary BETWEEN :salaryFrom AND :salaryTo ORDER BY name", Position.class)
+//                .setParameter("name", "%" + name + "%")
+//                .setParameter("salaryFrom", salaryFrom)
+//                .setParameter("salaryTo", salaryTo)
+//                .getResultList();
+        return entityManager.createQuery("SELECT p FROM Position p WHERE p.name like :name AND p.salary BETWEEN :salaryFrom AND :salaryTo ORDER BY p.name", Position.class)
                 .setParameter("name", "%" + name + "%")
                 .setParameter("salaryFrom", salaryFrom)
                 .setParameter("salaryTo", salaryTo)

@@ -31,17 +31,17 @@ public class FoodService implements FoodDAO {
             transaction.commit();
             return true;
 
-       }catch (Exception e){
-           if (transaction.isActive()) {
-               transaction.rollback();
-           }
-           e.printStackTrace();
-           return false;
-       }
+        } catch (Exception e) {
+            if (transaction.isActive()) {
+                transaction.rollback();
+            }
+            e.printStackTrace();
+            return false;
+        }
 
     }
 
-//    Tính giá gốc của từng món ăn sau khi chế biết thành phẩm. Kết quả sắp xếp giảm dần theo đơn giá gốc. Trong đó: Giá gốc món ăn = (số lượng nguyên liệu * đơn giá nguyên liệu) + (thời gian chuẩn bị + thời gian phục vụ) * 0.2$
+    //    Tính giá gốc của từng món ăn sau khi chế biết thành phẩm. Kết quả sắp xếp giảm dần theo đơn giá gốc. Trong đó: Giá gốc món ăn = (số lượng nguyên liệu * đơn giá nguyên liệu) + (thời gian chuẩn bị + thời gian phục vụ) * 0.2$
     // select i.*, sum(ing.quantity * ing.price) + (i.preparation_time + i.serving_time) * 0.2 as cost
     // from foods i
     // join items it on it.id = i.id
@@ -51,15 +51,31 @@ public class FoodService implements FoodDAO {
     // order by cost desc
     @Override
     public Map<Food, Double> listFoodAndCost() {
-        String query = "select i.*, sum(ing.quantity * ing.price) + (i.preparation_time + i.serving_time) * 0.2 as cost\n" +
-                "     from foods i\n" +
-                "     join items it on it.id = i.id\n" +
-                "     join items_ingredients ig on it.id = ig.item_id\n" +
-                "     join ingredients ing on ig.ingredient_id = ing.ingredient_id\n" +
-                "     group by i.id\n" +
-                "     order by cost desc";
-
-        List<?> resultList = entityManager.createNativeQuery(query).getResultList();
+//        String query = "select i.id, sum(ing.quantity * ing.price) + (i.preparation_time + i.serving_time) * 0.2 as cost\n" +
+//                "     from foods i\n" +
+//                "     join items it on it.id = i.id\n" +
+//                "     join items_ingredients ig on it.id = ig.item_id\n" +
+//                "     join ingredients ing on ig.ingredient_id = ing.ingredient_id\n" +
+//                "     group by i.id\n" +
+//                "     order by cost desc";
+//
+//        List<?> resultList = entityManager.createNativeQuery(query).getResultList();
+//
+//        Map<Food, Double> map = new HashMap<>();
+//        resultList.stream().map(o -> (Object[]) o).forEach(obj -> {
+//            String foodId = (String) obj[0];
+//            Food food = entityManager.find(Food.class, foodId);
+//            double cost = ((Number) obj[1]).doubleValue();
+//
+//            map.put(food, cost);
+//        });
+//
+//        return map;
+        String jpql = "SELECT i.id, SUM(ing.quantity * ing.price) + (i.preparationTime + i.servingTime) * 0.2 "
+                + "FROM Food i JOIN i.item it JOIN it.ingredient ing "
+                + "GROUP BY i.id "
+                + "ORDER BY SUM(ing.quantity * ing.price) + (i.preparationTime + i.servingTime) * 0.2 DESC";
+        List<?> resultList = entityManager.createQuery(jpql).getResultList();
 
         Map<Food, Double> map = new HashMap<>();
         resultList.stream().map(o -> (Object[]) o).forEach(obj -> {

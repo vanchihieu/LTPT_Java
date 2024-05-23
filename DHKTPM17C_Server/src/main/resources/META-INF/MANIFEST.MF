@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Main-Class: 
+Class-Path: jandex-3.1.2.jar jakarta.inject-api-2.0.1.jar jaxb-runtime-4
+ .0.2.jar jna-5.13.0.jar byte-buddy-1.14.11.jar jakarta.xml.bind-api-4.0
+ .0.jar angus-activation-2.0.0.jar hibernate-commons-annotations-6.0.6.F
+ inal.jar waffle-jna-3.3.0.jar checker-qual-3.32.0.jar jboss-logging-3.5
+ .0.Final.jar jakarta.transaction-api-2.0.1.jar jaxb-core-4.0.2.jar ista
+ ck-commons-runtime-4.1.1.jar antlr4-runtime-4.13.0.jar jakarta.persiste
+ nce-api-3.1.0.jar txw2-4.0.2.jar slf4j-api-2.0.7.jar error_prone_annota
+ tions-2.10.0.jar classmate-1.5.1.jar hibernate-core-6.4.4.Final.jar jna
+ -platform-5.13.0.jar jakarta.activation-api-2.1.0.jar mariadb-java-clie
+ nt-3.3.3.jar jcl-over-slf4j-2.0.7.jar caffeine-2.9.3.jar
+

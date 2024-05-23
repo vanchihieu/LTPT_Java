@@ -23,7 +23,7 @@ public class ItemService implements ItemDAO {
     // where lower(ig.supplier_name) like lower('%supplierName%') and i.on_special = 1
     @Override
     public List<Item> listItems(String supplierName) {
-//       String query = "select i.* from items i\n" +
+//       String query = "select i.id from items i\n" +
 //               "join items_ingredients ii on i.id = ii.item_id\n" +
 //               "join ingredients ig on ii.ingredient_id = ig.ingredient_id\n" +
 //               "where lower(ig.supplier_name) like lower(:supplierName) and i.on_special = 1";
@@ -32,7 +32,7 @@ public class ItemService implements ItemDAO {
 //                .getResultList();
 //        return items;
 
-        String query= "select i from Item i join Ingredient ig on i.id = ig.id where lower(ig.supplierName) like lower(:supplierName) and i.onSpecial = true ";
+        String query= "select i from Item i join i.ingredient ig  where lower(ig.supplierName) like lower(:supplierName) and i.onSpecial = true ";
         return entityManager.createQuery(query, Item.class)
                 .setParameter("supplierName", "%" + supplierName + "%")
                 .getResultList();
@@ -43,5 +43,11 @@ public class ItemService implements ItemDAO {
 //        return entityManager.createQuery(jpql, Item.class)
 //                .setParameter("supplierName", supplierNameLower)
 //                .getResultList();
+
+//        List<Item> list = entityManager.createQuery("SELECT i FROM Item i"
+//                        + " WHERE i.onSpecial = true AND ELEMENT(i.ingredient).supplierName = :supplierName")
+//                .setParameter("supplierName", "%"+ supplierName + "%" )
+//                .getResultList();
+//        return list;
     }
 }

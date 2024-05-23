@@ -30,7 +30,7 @@ public abstract class Item implements Serializable {
         joinColumns = @JoinColumn(name = "item_id", referencedColumnName = "id"),
         inverseJoinColumns = @JoinColumn(name = "ingredient_id", referencedColumnName = "ingredient_id")
     )
-    private Set<Ingredient> ingredient;
+    private Set<entities.Ingredient> ingredient;
 
     public Item(String id, String name, Double price, String description, boolean onSpecial) {
         this.id = id;

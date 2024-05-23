@@ -31,6 +31,9 @@ public class Book {
     @Column(name = "author", nullable = false)
     protected Set<String> authors;
 
+    @OneToMany(mappedBy = "book")
+    protected Set<Reviews> reviews;
+
     @Override
     public String toString() {
         return "Book{" +
